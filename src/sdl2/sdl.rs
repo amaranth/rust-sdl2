@@ -4,11 +4,11 @@ use std::str;
 // Setup linking for all targets.
 #[cfg(target_os="macos")]
 mod mac {
-    #[cfg(mac_framework)]
+    #[cfg(not(mac_dylib))]
     #[link(kind="framework", name="SDL2")]
     extern {}
 
-    #[cfg(not(mac_framework))]
+    #[cfg(mac_dylib)]
     #[link(name="SDL2")]
     extern {}
 }
